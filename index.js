@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 
 import productRoutes from "./Product/productRoutes.js";
+import userRouter from "./User/userRoutes.js";
 
 const app = express();
 
@@ -11,6 +12,7 @@ app.use(express.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
 app.use("/products", productRoutes);
+app.use("/user", userRouter);
 
 const CONNECTION_URL = "mongodb://localhost:27017/my_db";
 const PORT = process.env.PORT || 8139;
